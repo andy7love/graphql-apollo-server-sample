@@ -1,0 +1,36 @@
+{
+  "name": "graphql-apollo-server-sample",
+  "version": "1.0.0",
+  "description": "A sandbox for learning and playing with GraphQL and Apollo server using NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "dotenv -- nodemon -e ts,graphql -x ts-node src/index.ts",
+    "debug": "dotenv -- nodemon -e ts,graphql -x ts-node --inspect src/index.ts",
+    "build": "rimraf dist && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andy7love/graphql-apollo-server-sample.git"
+  },
+  "author": "Andres Amor",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andy7love/graphql-apollo-server-sample/issues"
+  },
+  "homepage": "https://github.com/andy7love/graphql-apollo-server-sample#readme",
+  "dependencies": {
+    "graphql-yoga": "^1.18.3",
+    "guid-typescript": "^1.0.9",
+    "reflect-metadata": "^0.1.13",
+    "typedi": "^0.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.1.7",
+    "dotenv-cli": "^3.1.0",
+    "nodemon": "^2.0.2",
+    "rimraf": "^3.0.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  }
+}

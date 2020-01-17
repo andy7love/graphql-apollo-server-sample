@@ -1,0 +1,39 @@
+type Query {
+  questions: [Question!]!
+  question(id: ID!): Question
+}
+
+input QuestionInput {
+  author: String!
+  message: String!
+  tags: [String]!
+}
+
+input AnswerInput {
+  author: String!
+  message: String!
+}
+
+type Mutation {
+  createQuestion(question: QuestionInput): Question!
+  createAnswer(questionId: ID, answer: AnswerInput): Answer!
+  deleteQuestion(id: ID!): Question!
+}
+
+type Subscription {
+  questionChanged: Question
+}
+
+type Answer {
+  id: ID!
+  author: String!
+  message: String!
+}
+
+type Question {
+  id: ID!
+  author: String!
+  message: String!
+  answers: [Answer!]!
+  tags: [String]!
+}
