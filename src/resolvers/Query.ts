@@ -10,5 +10,10 @@ export const Query = {
     question(parent, { id }) {
         const questionService = Container.get(QuestionService);
         return questionService.getQuestion(id);
-    }
+    },
+
+    tags() {
+        const questionService = Container.get(QuestionService);
+        return questionService.getTags();
+    },
 };

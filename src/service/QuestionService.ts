@@ -12,6 +12,8 @@ export class QuestionService {
     @Inject()
     eventBus: EventBus;
 
+    getTags = () => this.questionRepository.getTags();
+    getTagQuestions = (tag: string) => this.questionRepository.getTagQuestions(tag);
     getQuestions = () => this.questionRepository.getQuestions()
     getQuestion = (questionId: string) => this.questionRepository.getQuestion(questionId);
     getQuestionAnswers = (questionId: string) => this.questionRepository.getQuestion(questionId).answers;

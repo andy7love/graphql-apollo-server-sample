@@ -12,6 +12,11 @@ export interface Question {
     tags: Array<string>;
 }
 
+export interface TagFilter {
+    tag: string;
+    questionsCount: number;
+}
+
 interface QuestionRepository {
     getQuestions: () => Array<Question>;
     getQuestion: (questionId: string) => Question;
@@ -19,6 +24,8 @@ interface QuestionRepository {
     updateQuestion: (questionId: string, questionDTO: Partial<Question>) => Question;
     deleteQuestion: (questionId: string) => boolean;
     createAnswer: (questionId: string, answerDTO: Answer) => Answer;
+    getTags: () => Array<TagFilter>;
+    getTagQuestions: (tag: string) => Array<Question>;
 }
 
 export default QuestionRepository;

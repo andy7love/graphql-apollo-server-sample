@@ -1,9 +1,9 @@
 import { Container } from 'typedi';
 import { QuestionService } from '../service/QuestionService';
 
-export const Question = {
-    answers: ({ id }) => {
+export const TagFilter = {
+    questions: ({ tag }) => {
         const questionService = Container.get(QuestionService);
-        return questionService.getQuestionAnswers(id);
+        return questionService.getTagQuestions(tag);
     }
 }

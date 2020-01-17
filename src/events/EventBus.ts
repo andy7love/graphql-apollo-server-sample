@@ -7,6 +7,6 @@ export enum Events {
 };
 
 @Service()
-class EventBus extends EventEmitter {}
+class EventBus extends EventEmitter { }
 
 export default EventBus;

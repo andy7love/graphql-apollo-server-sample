@@ -1,6 +1,27 @@
 type Query {
   questions: [Question!]!
   question(id: ID!): Question
+  tags: [TagFilter!]!
+}
+
+type Answer {
+  id: ID!
+  author: String!
+  message: String!
+}
+
+type Question {
+  id: ID!
+  author: String!
+  message: String!
+  answers: [Answer!]!
+  tags: [String]!
+}
+
+type TagFilter {
+  tag: String!
+  questionsCount: Int!
+  questions: [Question!]!
 }
 
 input QuestionInput {
@@ -22,18 +43,4 @@ type Mutation {
 
 type Subscription {
   questionChanged: Question
-}
-
-type Answer {
-  id: ID!
-  author: String!
-  message: String!
-}
-
-type Question {
-  id: ID!
-  author: String!
-  message: String!
-  answers: [Answer!]!
-  tags: [String]!
 }

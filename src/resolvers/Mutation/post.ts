@@ -13,18 +13,18 @@ export type AnswerInput = {
 }
 
 export const post = {
-  async createQuestion(parent, req: { question: QuestionInput }) {
-    const questionService = Container.get(QuestionService);
-    return questionService.createQuestion(req.question);
-  },
+    async createQuestion(parent, req: { question: QuestionInput }) {
+        const questionService = Container.get(QuestionService);
+        return questionService.createQuestion(req.question);
+    },
 
-  async createAnswer(parent, req: { questionId: string, answer: AnswerInput }) {
-    const questionService = Container.get(QuestionService);
-    return questionService.createAnswer(req.questionId, req.answer);
-  },
+    async createAnswer(parent, req: { questionId: string, answer: AnswerInput }) {
+        const questionService = Container.get(QuestionService);
+        return questionService.createAnswer(req.questionId, req.answer);
+    },
 
-  async deleteQuestion(parent, req: { id: string }) {
-    const questionService = Container.get(QuestionService);
-    return questionService.deleteQuestion(req.id);
-  }
+    async deleteQuestion(parent, req: { id: string }) {
+        const questionService = Container.get(QuestionService);
+        return questionService.deleteQuestion(req.id);
+    }
 }

@@ -1,5 +1,6 @@
 import { Service } from "typedi";
-import QuestionRepository, { Question, Answer } from "../dal/QuestionRepository";
+import QuestionRepository, { Question, Answer, TagFilter } from "../dal/QuestionRepository";
+import * as _ from 'lodash';
 import data from './mockData';
 
 @Service("repository.question.mockData")
@@ -45,4 +46,24 @@ export class QuestionRepositoryMockData implements QuestionRepository {
         };
         return answerDTO;
     };
+    getTags = () => {
+        const tags = _
+            .chain(data)
+            .castArray()
+            .flatMap(question => question.tags)
+            .groupBy()
+            .mapValues((value, key): TagFilter => (
+                {
+                    tag: key,
+                    questionsCount: value.length
+                }
+            ))
+            .toArray()
+            .value();
+        return tags;
+    }
+    getTagQuestions = (tag: string) => {
+        const questions = data.filter(q => q.tags.includes(tag));
+        return questions;
+    }
 }
