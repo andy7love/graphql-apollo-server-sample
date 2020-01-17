@@ -33,10 +33,7 @@ export class QuestionService {
             id: Guid.create().toString(),
             ...answerDTO
         });
-        this.eventBus.emit(Events.CREATE_ANSWER, {
-            questionId,
-            answer
-        });
+        this.eventBus.emit(Events.CREATE_ANSWER, this.questionRepository.getQuestion(questionId));
         return answer;
     }
 

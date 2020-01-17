@@ -10,7 +10,7 @@ import initializeEventHandlers from "./events/handlers";
 Container.set('repository.question', new QuestionRepositoryMockData());
 
 // Get yoga PubSub unique instance.
-const pubSub = Container.get(PubSub);
+const pubsub = Container.get(PubSub);
 
 // Wire EventBus with other event dispatchers and handlers.
 initializeEventHandlers();
@@ -19,7 +19,7 @@ initializeEventHandlers();
 const server = new GraphQLServer({
   typeDefs: './src/schema.graphql',
   resolvers,
-  context: { pubSub }
+  context: { pubsub }
 });
 
 server.start(() => console.log(`Server is running on http://localhost:4000`))
