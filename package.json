@@ -23,7 +23,7 @@
     "@types/lodash": "^4.14.149",
     "graphql-yoga": "^1.18.3",
     "guid-typescript": "^1.0.9",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "reflect-metadata": "^0.1.13",
     "typedi": "^0.8.0"
   },
